@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+
+</head>
+
+<body>
+    
+        <canvas id="mycanvas" width="600" height="300" style="border: 0px solid #d3d3d3 ">
+        your browser does not support HTML5 canvas</canvas>
+        </canvas>
+    
+    
+    <script>
+
+        var canvas = document.getElementById("mycanvas")
+        var ctx = canvas.getContext("2d")
+
+        // rectangle
+
+        ctx.beginPath();
+        ctx.lineWidth = "0";
+        ctx.strokeStyle = "black";
+        ctx.rect(5, 5, 590, 290);
+        ctx.stroke()
+          
+        // circle 
+
+        ctx.beginPath();
+        ctx.arc(325, 125, 40, 0, 2 * Math.PI)
+        ctx.fillStyle = "rgb(137, 207, 240)";
+        ctx.fill();
+
+    
+    
+             var timeleft = 1;
+        var downloadtimer = setInterval(function () {
+            if (timeleft >= 10) {
+                clearInterval(downloadtimer)
+                document.getElementById("countdown").innerHTML = "00:" + 10;
+            } else {
+                document.getElementById("countdown").innerHTML = "00:0" + timeleft;
+                timeleft += 1;
+            }
+        }, 1000)
+
+
+    </script>
+
+    <div id="countdown"></div>
+    
+    <script>
+        var d = document.getElementById("countdown")
+        d.style.position = "absolute"
+        d.style.left = 310 + 'px';
+        d.style.top = 130 + 'px';
+    </script>
+
+</body>
+
+</html>
